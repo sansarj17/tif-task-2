@@ -8,7 +8,8 @@ import { IJobDetails } from "../../interface/forms";
 
 const JobDetailsForm: React.FC<{
   handleTab: (n: PageNumbers) => void;
-}> = ({ handleTab }) => {
+  handleJobDetailsChange:(obj:IJobDetails) => void;
+}> = ({ handleTab,handleJobDetailsChange }) => {
   const { handleChange, errors, touched, handleBlur, handleSubmit, values } =
     useFormik<IJobDetails>({
       initialValues: {
@@ -20,13 +21,17 @@ const JobDetailsForm: React.FC<{
         jobTitle: Yup.string().required("Job Title is required"),
         jobDetails: Yup.string().required("Job Details is required"),
         jobLocation: Yup.string().required("Job Location is required"),
-        jobPosition: Yup.string().required("Job position is required"),
+        // jobPosition: Yup.string().required("Job position is required"),
       }),
       onSubmit: (values) => {
         console.log({ values });
         handleTab(2);
       },
     });
+
+	React.useEffect(() => {
+		handleJobDetailsChange(values)
+	},[values])
 
   return (
     <Box width="100%" as="form" onSubmit={handleSubmit as any}>

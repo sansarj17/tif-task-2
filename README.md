@@ -1,3 +1,19 @@
+## BUG REPORT
+I have not encountered the bug, but it may be due to handlePage method not being
+handled correctly on JobDetails component.
+
+## State being used
+We can use both local state and context state for handling the state and passing between preview card component and respective forms
+
+Not exposing setState method directly to the component, handleContextStateUpdate acts as a reducer for context state
+
+For using local state, the code is commented. Although the state passing to PreviewCard component will be changed.
+
+In interviewSettings form, I restricted the choices for every field to the options which were available.
+
+
+
+## Auto Generated Readme below
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
